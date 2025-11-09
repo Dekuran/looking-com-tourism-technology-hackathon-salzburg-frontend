@@ -396,13 +396,13 @@ const Admin = () => {
                   <TableBody>
                     {analyticsData.reservations.slice(0, 10).map((reservation: any, idx: number) => (
                       <TableRow key={idx}>
-                        <TableCell className="font-medium">{reservation.reservation_id}</TableCell>
-                        <TableCell>{reservation.guest?.given_name} {reservation.guest?.surname}</TableCell>
-                        <TableCell>{new Date(reservation.arrival).toLocaleDateString('de-DE')}</TableCell>
-                        <TableCell>{new Date(reservation.departure).toLocaleDateString('de-DE')}</TableCell>
-                        <TableCell>{reservation.room_type_code}</TableCell>
+                        <TableCell className="font-medium">{reservation.data?.reservation_id}</TableCell>
+                        <TableCell>{reservation.data?.guest?.given_name} {reservation.data?.guest?.surname}</TableCell>
+                        <TableCell>{new Date(reservation.data?.arrival).toLocaleDateString('de-DE')}</TableCell>
+                        <TableCell>{new Date(reservation.data?.departure).toLocaleDateString('de-DE')}</TableCell>
+                        <TableCell>{reservation.data?.room_type_code}</TableCell>
                         <TableCell className="text-right font-semibold">
-                          €{reservation.total_amount?.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                          €{reservation.data?.total_amount?.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                         </TableCell>
                       </TableRow>
                     ))}
